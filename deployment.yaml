@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-deployment
+  labels:
+    app: health
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: health
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: health
+        tier: backend
+    spec:
+      containers:
+      - name: health
+        image: docker.io/cyclopeye/health:v1.0
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 3
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 3
