@@ -9,9 +9,9 @@
 	`docker run -d --name health -p 8000:8080 cyclopeye/health:v1.0`
 
 # Kubernetes Task
-1. Deploy
-a. Deployment kubectl apply -f deployment.yaml
-b. Servise & Ingress kubectl apply -f ingress.yaml
-2. Links 
-a. first: `http://arch.homework/health`
-b. second: `http://arch.homework/otusapp/AGerastovskiy/*`
+1. Deploy  
+   a. Deployment kubectl apply -f deployment.yaml  
+   b. Servise & Ingress kubectl apply -f ingress.yaml  
+2. Links  
+   a. first: `http://arch.homework/health`  
+   b. second: `http://arch.homework/otusapp/AGerastovskiy/*`
